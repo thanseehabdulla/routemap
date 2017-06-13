@@ -4,21 +4,15 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {TasksComponent} from './components/tasks/tasks.component';
-import { PageNotFoundComponent }  from './page-not-found.component';
-import { HomeComponent }  from './components/home/home.component';
-import { ViewDetailComponent }  from './components/home/view-detail.component';
-import { AddBookComponent }  from './components/add-book/add-book.component';
-import { UpdateBookComponent }  from './components/manage-book/update-book.component';
-import { ManageBookComponent }  from './components/manage-book/manage-book.component';
-import { AppRoutingModule }  from './app-routing.module';
+import {CustomerComponent} from './components/customer/customer.component';
+import {AdminComponent} from './components/admin/admin.component'
+import { DatePickerModule } from 'ng2-datepicker';
+
+
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, FormsModule ,AppRoutingModule],
-  declarations: [AppComponent, TasksComponent,PageNotFoundComponent,
-	  HomeComponent,
-	  ViewDetailComponent,
-	  AddBookComponent,
-	  ManageBookComponent,],
+  imports:      [ BrowserModule, HttpModule, FormsModule,DatePickerModule ],
+  declarations: [AppComponent, TasksComponent,CustomerComponent,AdminComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

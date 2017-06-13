@@ -1,26 +1,19 @@
-// import { Component } from '@angular/core';
-// import {TaskService} from './services/task.service';
-
-// @Component({
-//   moduleId: module.id,
-//   selector: 'my-app',
-//   templateUrl: 'app.component.html',
-//   providers:[TaskService]
-// })
-
-// export class AppComponent { }
-
-
-
-
 import { Component } from '@angular/core';
-
+import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 
 @Component({
+  moduleId: module.id,
   selector: 'my-app',
-  templateUrl: './app.component.html', 
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
+  // providers:[TaskService]
 })
+
 export class AppComponent { 
-  title = "Book Library"
-} 
+ date: DateModel;
+  options: DatePickerOptions;
+
+  constructor() {
+    this.options = new DatePickerOptions();
+  }
+
+}

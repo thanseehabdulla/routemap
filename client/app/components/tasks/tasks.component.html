@@ -1,30 +1,23 @@
-<!--<form class="well" (submit)="addTask($event)">
-      <div class="form-group">
-        <input type="text" [(ngModel)]="title" name="title" class="form-control" placeholder="Add Task...">    
-      </div>  
-</form>
-
-<div class="task-list">
-    <div *ngFor="let task of tasks">
-        <div class="col-md-1">
-            <input type="checkbox" [checked]="task.isDone" (click)="updateStatus(task)">
-        </div>
-        <div class="col-md-7">
-            {{task.title}}    
-        </div> 
-        <div class="col-md-4">
-            <input type="button" (click)="deleteTask(task._id)" value="Delete" class="btn btn-danger">    
-        </div>
-        <br><br>
-    </div>
-</div>-->
-
-
+<h1>Login Page</h1>
+    <hr>
 <div>
-
-
-<p> we are in the task page </p>
-
-
+    <div >
+                <div class="panel panel-info" style="margin: 50px 190px 20px 310px;max-width: 450px">
+                     <div class="panel-heading">
+                      <h3 class="panel-title" style="text-align: center">Login</h3>
+                      </div>
+                      <div class="panel-body">
+                      <input type="text" class="form-control" id="inputError" placeholder="Name" [(ngModel)]="name">
+                      <br/>
+                      <input type="password" class="form-control" id="inputError" placeholder="Password" [(ngModel)]="password">
+                      </div>
+                </div>
+        
+     <button class="btn btn-primary" style="margin: 10px 10px 20px 500px" (click)="submit()">Login</button>
+        
+        
+        
+        
+        <div>
 
 </div>
