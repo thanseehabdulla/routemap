@@ -15,17 +15,20 @@ var tasks_component_1 = require("./components/tasks/tasks.component");
 var customer_component_1 = require("./components/customer/customer.component");
 var admin_component_1 = require("./components/admin/admin.component");
 var mydatepicker_1 = require("mydatepicker");
+var core_2 = require("angular2-google-maps/core");
 var AppModule = (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, mydatepicker_1.MyDatePickerModule, core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyDJSftDw2ZAC-PU9AXx0u7UVhbKGqO90j0'
+                })],
+            declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent, customer_component_1.CustomerComponent, admin_component_1.AdminComponent],
+            bootstrap: [app_component_1.AppComponent]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, mydatepicker_1.MyDatePickerModule],
-        declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent, customer_component_1.CustomerComponent, admin_component_1.AdminComponent],
-        bootstrap: [app_component_1.AppComponent]
-    })
-], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

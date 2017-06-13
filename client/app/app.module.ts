@@ -7,13 +7,13 @@ import {TasksComponent} from './components/tasks/tasks.component';
 import {CustomerComponent} from './components/customer/customer.component';
 import {AdminComponent} from './components/admin/admin.component'
 import { MyDatePickerModule } from 'mydatepicker';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, FormsModule,MyDatePickerModule, AgmCoreModule.forRoot({
-      apiKey: 'YOUR_KEY'
-    }) ],
+  imports:      [ BrowserModule, HttpModule, FormsModule,MyDatePickerModule,AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDJSftDw2ZAC-PU9AXx0u7UVhbKGqO90j0'
+    })],
   declarations: [AppComponent, TasksComponent,CustomerComponent,AdminComponent],
   bootstrap: [AppComponent]
 })

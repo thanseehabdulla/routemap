@@ -12,12 +12,44 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var CustomerComponent = (function () {
     function CustomerComponent() {
+        // google maps zoom level
+        this.zoom = 8;
+        // initial center position for the map
+        this.lat = 51.673858;
+        this.lng = 7.815982;
+        this.markers = [
+            {
+                lat: 51.673858,
+                lng: 7.815982,
+                label: 'A',
+                draggable: true
+            },
+            {
+                lat: 51.373858,
+                lng: 7.215982,
+                label: 'B',
+                draggable: false
+            },
+            {
+                lat: 51.723858,
+                lng: 7.895982,
+                label: 'C',
+                draggable: true
+            }
+        ];
+        // just an interface for type safety.
         this.myDatePickerOptions = {
             // other options...
             dateFormat: 'dd/mm/yyyy',
         };
         this.date();
     }
+    CustomerComponent.prototype.clickedMarker = function (label, index) {
+        console.log("clicked the marker: " + (label || index));
+    };
+    CustomerComponent.prototype.markerDragEnd = function (m, $event) {
+        console.log('dragEnd', m, $event);
+    };
     CustomerComponent.prototype.ngOnInit = function () {
         //called after the constructor and called  after the first ngOnChanges() 
         this.date();
@@ -113,15 +145,16 @@ var CustomerComponent = (function () {
         client.style.display = "none";
         employee.style.display = "none";
     };
+    CustomerComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'tasks',
+            templateUrl: './customer.component.html',
+            styles: ["\n    .sebm-google-map-container {\n       height: 300px;\n     }\n  "]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CustomerComponent);
     return CustomerComponent;
 }());
-CustomerComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'tasks',
-        templateUrl: './customer.component.html',
-    }),
-    __metadata("design:paramtypes", [])
-], CustomerComponent);
 exports.CustomerComponent = CustomerComponent;
 //# sourceMappingURL=customer.component.js.map

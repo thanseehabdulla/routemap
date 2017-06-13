@@ -299,8 +299,11 @@
               <h4 id="tables"> Service Plan   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Date:{{model.date.day}}/{{model.date.month}}/{{model.date.year}}</h4>
             </div>
 
+<h1>{{ title }}</h1>
 
-             <sebm-google-map 
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<sebm-google-map 
       [latitude]="lat"
       [longitude]="lng"
       [zoom]="zoom"
@@ -331,6 +334,9 @@
       </sebm-google-map-circle>
 
     </sebm-google-map>
+        
+    
+      
 </div>
 
  </div>

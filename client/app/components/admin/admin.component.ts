@@ -21,7 +21,7 @@ export class AdminComponent {
     }
     
 
-    submit(){
+    submit(){   
         console.log(this.name);
         alert(this.name);    
  location.href = "http://www.cnn.com";

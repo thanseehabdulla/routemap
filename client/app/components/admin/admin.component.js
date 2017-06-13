@@ -22,15 +22,15 @@ var AdminComponent = (function () {
         alert(this.name);
         location.href = "http://www.cnn.com";
     };
+    AdminComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'admin',
+            templateUrl: './admin.component.html',
+        }),
+        __metadata("design:paramtypes", [])
+    ], AdminComponent);
     return AdminComponent;
 }());
-AdminComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'admin',
-        templateUrl: './admin.component.html',
-    }),
-    __metadata("design:paramtypes", [])
-], AdminComponent);
 exports.AdminComponent = AdminComponent;
 //# sourceMappingURL=admin.component.js.map

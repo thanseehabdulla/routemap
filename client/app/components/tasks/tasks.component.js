@@ -22,15 +22,15 @@ var TasksComponent = (function () {
         alert(this.name);
         location.href = "http://www.cnn.com";
     };
+    TasksComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'taskss',
+            templateUrl: './tasks.component.html',
+        }),
+        __metadata("design:paramtypes", [])
+    ], TasksComponent);
     return TasksComponent;
 }());
-TasksComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'taskss',
-        templateUrl: './tasks.component.html',
-    }),
-    __metadata("design:paramtypes", [])
-], TasksComponent);
 exports.TasksComponent = TasksComponent;
 //# sourceMappingURL=tasks.component.js.map
