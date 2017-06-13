@@ -14,7 +14,7 @@ var app_component_1 = require("./app.component");
 var tasks_component_1 = require("./components/tasks/tasks.component");
 var customer_component_1 = require("./components/customer/customer.component");
 var admin_component_1 = require("./components/admin/admin.component");
-var ng2_datepicker_1 = require("ng2-datepicker");
+var mydatepicker_1 = require("mydatepicker");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,7 +22,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, ng2_datepicker_1.DatePickerModule],
+        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, mydatepicker_1.MyDatePickerModule],
         declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent, customer_component_1.CustomerComponent, admin_component_1.AdminComponent],
         bootstrap: [app_component_1.AppComponent]
     })

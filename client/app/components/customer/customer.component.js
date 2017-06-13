@@ -12,16 +12,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var CustomerComponent = (function () {
     function CustomerComponent() {
-        // this.taskService.getTasks()
-        //     .subscribe(tasks => {
-        //         this.tasks = tasks;
-        //     });
+        this.myDatePickerOptions = {
+            // other options...
+            dateFormat: 'dd/mm/yyyy',
+        };
+        this.date();
     }
+    CustomerComponent.prototype.ngOnInit = function () {
+        //called after the constructor and called  after the first ngOnChanges() 
+        this.date();
+    };
+    CustomerComponent.prototype.date = function () {
+        var today = new Date();
+        this.dd = today.getDate();
+        this.mm = today.getMonth() + 1; //January is 0!
+        this.yyyy = today.getFullYear();
+        this.model = { date: { year: this.yyyy, month: this.mm, day: this.dd } };
+    };
     CustomerComponent.prototype.onEmployee = function () {
         var client = document.getElementById('client');
         var employee = document.getElementById('employee');
         var servicereq = document.getElementById('servicereq');
         var serviceplan = document.getElementById('serviceplan');
+        var servicelist = document.getElementById('servicelist');
+        var addserviceplan = document.getElementById('addserviceplan');
+        addserviceplan.style.display = "none";
+        servicelist.style.display = "none";
         serviceplan.style.display = "none";
         servicereq.style.display = "none";
         client.style.display = "none";
@@ -32,6 +48,10 @@ var CustomerComponent = (function () {
         var employee = document.getElementById('employee');
         var servicereq = document.getElementById('servicereq');
         var serviceplan = document.getElementById('serviceplan');
+        var servicelist = document.getElementById('servicelist');
+        var addserviceplan = document.getElementById('addserviceplan');
+        addserviceplan.style.display = "none";
+        servicelist.style.display = "none";
         serviceplan.style.display = "none";
         servicereq.style.display = "none";
         employee.style.display = "none";
@@ -42,6 +62,10 @@ var CustomerComponent = (function () {
         var employee = document.getElementById('employee');
         var servicereq = document.getElementById('servicereq');
         var serviceplan = document.getElementById('serviceplan');
+        var servicelist = document.getElementById('servicelist');
+        var addserviceplan = document.getElementById('addserviceplan');
+        addserviceplan.style.display = "none";
+        servicelist.style.display = "none";
         serviceplan.style.display = "none";
         servicereq.style.display = "block";
         client.style.display = "none";
@@ -52,7 +76,39 @@ var CustomerComponent = (function () {
         var employee = document.getElementById('employee');
         var servicereq = document.getElementById('servicereq');
         var serviceplan = document.getElementById('serviceplan');
+        var servicelist = document.getElementById('servicelist');
+        var addserviceplan = document.getElementById('addserviceplan');
+        addserviceplan.style.display = "none";
+        servicelist.style.display = "none";
         serviceplan.style.display = "block";
+        servicereq.style.display = "none";
+        client.style.display = "none";
+        employee.style.display = "none";
+    };
+    CustomerComponent.prototype.servicePlanClick = function () {
+        var client = document.getElementById('client');
+        var employee = document.getElementById('employee');
+        var servicereq = document.getElementById('servicereq');
+        var serviceplan = document.getElementById('serviceplan');
+        var servicelist = document.getElementById('servicelist');
+        var addserviceplan = document.getElementById('addserviceplan');
+        addserviceplan.style.display = "none";
+        servicelist.style.display = "block";
+        serviceplan.style.display = "none";
+        servicereq.style.display = "none";
+        client.style.display = "none";
+        employee.style.display = "none";
+    };
+    CustomerComponent.prototype.addserviceplan = function () {
+        var client = document.getElementById('client');
+        var employee = document.getElementById('employee');
+        var servicereq = document.getElementById('servicereq');
+        var serviceplan = document.getElementById('serviceplan');
+        var servicelist = document.getElementById('servicelist');
+        var addserviceplan = document.getElementById('addserviceplan');
+        addserviceplan.style.display = "block";
+        servicelist.style.display = "none";
+        serviceplan.style.display = "none";
         servicereq.style.display = "none";
         client.style.display = "none";
         employee.style.display = "none";

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DatePickerOptions, DateModel } from 'ng2-datepicker';
+
 
 @Component({
   moduleId: module.id,
@@ -9,11 +9,5 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 })
 
 export class AppComponent { 
- date: DateModel;
-  options: DatePickerOptions;
-
-  constructor() {
-    this.options = new DatePickerOptions();
-  }
 
 }

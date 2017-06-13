@@ -6,12 +6,14 @@ import {AppComponent} from './app.component';
 import {TasksComponent} from './components/tasks/tasks.component';
 import {CustomerComponent} from './components/customer/customer.component';
 import {AdminComponent} from './components/admin/admin.component'
-import { DatePickerModule } from 'ng2-datepicker';
-
+import { MyDatePickerModule } from 'mydatepicker';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
-  imports:      [ BrowserModule, HttpModule, FormsModule,DatePickerModule ],
+  imports:      [ BrowserModule, HttpModule, FormsModule,MyDatePickerModule, AgmCoreModule.forRoot({
+      apiKey: 'YOUR_KEY'
+    }) ],
   declarations: [AppComponent, TasksComponent,CustomerComponent,AdminComponent],
   bootstrap: [AppComponent]
 })
