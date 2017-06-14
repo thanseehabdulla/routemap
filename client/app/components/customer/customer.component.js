@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var CustomerComponent = (function () {
-    function CustomerComponent() {
+    function CustomerComponent(router) {
+        this.router = router;
         // google maps zoom level
         this.zoom = 8;
         // initial center position for the map
@@ -38,6 +40,12 @@ var CustomerComponent = (function () {
             }
         ];
         // just an interface for type safety.
+        //  mapClicked($event: MouseEvent) {
+        //     this.markers.push({
+        //       lat: $event.coords.lat,
+        //       lng: $event.coords.lng
+        //     });
+        //   }
         this.myDatePickerOptions = {
             // other options...
             dateFormat: 'dd/mm/yyyy',
@@ -145,6 +153,10 @@ var CustomerComponent = (function () {
         client.style.display = "none";
         employee.style.display = "none";
     };
+    CustomerComponent.prototype.logout = function () {
+        sessionStorage.removeItem('currentUser');
+        this.router.navigate(['/login']);
+    };
     CustomerComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -152,7 +164,7 @@ var CustomerComponent = (function () {
             templateUrl: './customer.component.html',
             styles: ["\n    .sebm-google-map-container {\n       height: 300px;\n     }\n  "]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [router_1.Router])
     ], CustomerComponent);
     return CustomerComponent;
 }());

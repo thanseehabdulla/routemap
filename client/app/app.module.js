@@ -16,6 +16,26 @@ var customer_component_1 = require("./components/customer/customer.component");
 var admin_component_1 = require("./components/admin/admin.component");
 var mydatepicker_1 = require("mydatepicker");
 var core_2 = require("angular2-google-maps/core");
+var router_1 = require("@angular/router");
+var pagenotfound_component_1 = require("./components/pagenotfound/pagenotfound.component");
+var auth_guard_1 = require("./components/security/auth.guard");
+var auth_guard_admin_1 = require("./components/security/auth.guard.admin");
+var auth_deguard_1 = require("./components/security/auth.deguard");
+var auth_service_1 = require("./components/security/auth.service");
+var appRoutes = [
+    { path: 'customer', component: customer_component_1.CustomerComponent, canActivate: [
+            auth_guard_1.CanActivateViaAuthGuard
+        ] },
+    { path: 'admin', component: admin_component_1.AdminComponent, canActivate: [
+            auth_guard_admin_1.CanActivateViaAuthGuardAdmin
+        ] },
+    { path: 'login', component: tasks_component_1.TasksComponent },
+    { path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
+    },
+    { path: '**', component: pagenotfound_component_1.pageNotFoundComponent }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,8 +43,12 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, mydatepicker_1.MyDatePickerModule, core_2.AgmCoreModule.forRoot({
                     apiKey: 'AIzaSyDJSftDw2ZAC-PU9AXx0u7UVhbKGqO90j0'
-                })],
-            declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent, customer_component_1.CustomerComponent, admin_component_1.AdminComponent],
+                }), router_1.RouterModule.forRoot(appRoutes)],
+            declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent, customer_component_1.CustomerComponent, admin_component_1.AdminComponent, pagenotfound_component_1.pageNotFoundComponent],
+            providers: [
+                auth_service_1.AuthService,
+                auth_guard_1.CanActivateViaAuthGuard, auth_deguard_1.ConfirmDeactivateGuard, auth_guard_admin_1.CanActivateViaAuthGuardAdmin
+            ],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

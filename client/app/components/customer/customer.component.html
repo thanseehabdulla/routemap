@@ -11,14 +11,14 @@
 </div>
 
 <div>
-<div class="col-lg-3 col-md-3 col-sm-4" style="width: 30%">
+<div class="col-lg-3 col-md-3 col-sm-4" style="max-width: 30%">
             <div class="list-group table-of-contents">
               <a class="list-group-item" (click)="onEmployee()">Employees</a>
               <a class="list-group-item" (click)="onClient()">Clients</a>
               <a class="list-group-item" (click)="onServicereq()">Service Request</a>
               <a class="list-group-item" (click)="onServiceplan()">Service Plan</a>
               <a class="list-group-item" href="#buttons">change password</a>
-              <a class="list-group-item" href="#typography">Logout</a>
+              <a class="list-group-item" (click)="logout()">Logout</a>
             </div>
 </div>
 
@@ -307,9 +307,9 @@
       [latitude]="lat"
       [longitude]="lng"
       [zoom]="zoom"
-      [disableDefaultUI]="false"
-      [zoomControl]="false"
-      (mapClick)="mapClicked($event)">
+      [disableDefaultUI]="true"
+      [zoomControl]="true"
+      >
     
       <sebm-google-map-marker 
           *ngFor="let m of markers; let i = index"
@@ -326,12 +326,12 @@
         
       </sebm-google-map-marker>
       
-      <sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng" 
+      <!--<sebm-google-map-circle [latitude]="lat + 0.3" [longitude]="lng" 
           [radius]="5000"
           [fillColor]="'red'"
           [circleDraggable]="true"
           [editable]="true">
-      </sebm-google-map-circle>
+      </sebm-google-map-circle>-->
 
     </sebm-google-map>
         

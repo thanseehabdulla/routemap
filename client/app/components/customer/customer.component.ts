@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Task} from '../../../Task';
 import {IMyDpOptions} from 'mydatepicker';
+import { Router } from '@angular/router';
+
 
 @Component({
   moduleId: module.id,
@@ -60,12 +62,12 @@ markerDragEnd(m: marker, $event: MouseEvent) {
 
 // just an interface for type safety.
 
- mapClicked($event: MouseEvent) {
-    this.markers.push({
-      lat: $event.coords.lat,
-      lng: $event.coords.lng
-    });
-  }
+//  mapClicked($event: MouseEvent) {
+//     this.markers.push({
+//       lat: $event.coords.lat,
+//       lng: $event.coords.lng
+//     });
+//   }
 
 
  private myDatePickerOptions: IMyDpOptions = {
@@ -76,7 +78,7 @@ markerDragEnd(m: marker, $event: MouseEvent) {
         public model: Object;
          
 
-constructor(){
+constructor(private router: Router){
        this.date();      
    }
 
@@ -196,6 +198,12 @@ employee.style.display="none";
 
 }
 
+logout()
+{
+sessionStorage.removeItem('currentUser');
+this.router.navigate(['/login']);
+
+}
 }
 interface marker {
 	lat: number;

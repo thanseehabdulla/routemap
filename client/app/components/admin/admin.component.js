@@ -10,17 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var AdminComponent = (function () {
-    function AdminComponent() {
-        // this.taskService.getTasks()
-        //     .subscribe(tasks => {
-        //         this.tasks = tasks;
-        //     });
+    function AdminComponent(router) {
+        this.router = router;
     }
-    AdminComponent.prototype.submit = function () {
-        console.log(this.name);
-        alert(this.name);
-        location.href = "http://www.cnn.com";
+    AdminComponent.prototype.logout = function () {
+        sessionStorage.removeItem('adminUser');
+        this.router.navigate(['/login']);
     };
     AdminComponent = __decorate([
         core_1.Component({
@@ -28,7 +25,7 @@ var AdminComponent = (function () {
             selector: 'admin',
             templateUrl: './admin.component.html',
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [router_1.Router])
     ], AdminComponent);
     return AdminComponent;
 }());

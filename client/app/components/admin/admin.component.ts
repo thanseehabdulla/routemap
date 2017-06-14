@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Task} from '../../../Task';
+import { Router } from '@angular/router';
+
 
 @Component({
   moduleId: module.id,
@@ -13,20 +15,15 @@ export class AdminComponent {
     name:any;
     password:any; 
     
-    constructor(){
-        // this.taskService.getTasks()
-        //     .subscribe(tasks => {
-        //         this.tasks = tasks;
-        //     });
+    constructor(private router: Router){
+
     }
     
 
-    submit(){   
-        console.log(this.name);
-        alert(this.name);    
- location.href = "http://www.cnn.com";
+   logout()
+{
+sessionStorage.removeItem('adminUser');
+this.router.navigate(['/login']);
 
-
-}
   
 }

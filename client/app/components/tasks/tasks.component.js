@@ -10,25 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var TasksComponent = (function () {
-    function TasksComponent() {
-        // this.taskService.getTasks()
-        //     .subscribe(tasks => {
-        //         this.tasks = tasks;
-        //     });
+    function TasksComponent(router) {
+        this.router = router;
     }
+    TasksComponent.prototype.ngOnInit = function () {
+        if (sessionStorage.getItem('adminUser') == 'admin') {
+            this.router.navigate(['/admin']);
+        }
+        else if (sessionStorage.getItem('currentUser') == 'customer') {
+            this.router.navigate(['/customer']);
+        }
+    };
     TasksComponent.prototype.submit = function () {
-        console.log(this.name);
-        alert(this.name);
-        location.href = "http://www.cnn.com";
+        if (this.name == 'admin') {
+            sessionStorage.setItem('adminUser', 'admin');
+            this.router.navigate(['/admin']);
+        }
+        else {
+            sessionStorage.setItem('currentUser', 'customer');
+            this.router.navigate(['/customer']);
+        }
     };
     TasksComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'taskss',
+            selector: 'login',
             templateUrl: './tasks.component.html',
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [router_1.Router])
     ], TasksComponent);
     return TasksComponent;
 }());
